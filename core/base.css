@@ -157,7 +157,7 @@ a:visited {color:var(--text)}
 	margin-top: -150vh;
 	width: 100%;
 	z-index: -20;
-	background-image: url("/Innveo/projects/innveoMix.jpg");
+	background-image: url("./projects/innveoMix.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -231,7 +231,7 @@ body > header {height:100vh;
   padding:0px;
 	margin-bottom: calc( -5vh - var(--nav) );
 	z-index: -10;
-  background-image: url("/Innveo/projects/Lift01.jpg");
+  background-image: url("./projects/Lift01.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -272,3 +272,4 @@ blockquote{margin: 0; padding: 0 0 0 1em; border-left: 1px solid var(--txt);}
   background-repeat: no-repeat;
   background-position: center;
 }
+
