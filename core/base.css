@@ -1,0 +1,274 @@
+@property --_w {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 100vw; 
+}
+@property --_h {
+  syntax: '<length>';
+  inherits: true;
+  initial-value: 100vh; 
+}
+:root {
+  --w: tan(atan2(var(--_w),1px)); /* screen width */
+  --h: tan(atan2(var(--_h),1px)); /* screen height*/
+  /* The result is an integer without unit  */
+  --grid:241px;
+  --grd:tan(atan2(var(--grid),1px));
+  --nav:40px;
+  
+  --mfg: rgb(235,233,232);
+  --shd: rgba(0,0,0,0.4);
+  --shad: rgba(0,0,0,0.9);
+  --txt: #fff;
+  --text: #fff;
+
+  --primary: rgba(37, 37, 37, 1.0);
+	--secondary: rgba(252, 41, 74, 1.0);
+	--shades: #8a8a8a;
+
+}
+
+* {
+	scroll-behavior: smooth;
+}
+
+html[data-theme='light'] {
+    --bg: rgb(235,233,232);
+    --line: rgb(200,200,200);
+    --bga: rgba(235,233,232,0.7);
+    --gbg: #fff;
+    --txt: #222;
+    --ts: rgba(0,0,0,0.2);
+    --slight: var(--bg);
+    --shd: rgba(255,255,255,0.1);
+}
+
+html[data-theme='dark'] {
+  --bg: rgb(20,22,23);
+  --line: rgb(100,100,100);
+  --bga: rgba(20,22,23,0.6);
+  --gbg: #000;
+  --txt: #fff;
+  --ts: rgba(0,0,0,0.4);
+  --slight: var(--bg);
+  --shd: rgba(0,0,0,0.4);
+}
+
+body {
+  font-family: sans-serif;
+  font-size: 14px;
+  background-color: var(--bg);
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+  text-shadow: 0px 1px 3px var(--shad);
+  line-height: normal;
+}
+
+.header {
+	/*height: calc( 100 vh - 60 px);*/
+	height: 100vh;
+}
+
+.header,
+.footer {
+	position: relative;
+}
+
+.footer h1 {
+  	font-size: 4rem;
+	
+}
+
+.innveo{margin: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-webkit-filter: drop-shadow(5px 5px 5px #222);
+  filter: drop-shadow(3px 5px 7px #000000c5);
+  width:var(--grid);
+  height:auto;
+}
+
+.subtle{font-size:0.7em;opacity: 50%;text-decoration: none;
+}
+.btn{background-color: var(--bga);
+opacity:100%;
+backdrop-filter: blur(20px);
+  border-radius: 10px;
+  filter: drop-shadow(2px 3px 3px #000000e5);
+}
+
+.navbar {
+padding-top: 5px;
+padding-bottom: 0;
+display: flex;
+flex-direction: column;
+align-items: center;
+height: var(--nav);
+}
+
+.nav {
+		position: fixed;
+		top: 0;
+		left: 0;
+		height: 100%;
+		width: 100%;
+		z-index: -1;
+		background-color: var(--primary);
+		opacity: 0;
+		transition: all 0.2s ease;
+	}
+
+
+.sticky {
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0;
+	z-index: 1;
+}
+
+.hidden {
+	display: none !important;
+}
+
+.brand {
+	margin: 0;
+	font-size: 1.45em;
+}
+
+.brand a {
+	padding: 10px 15px;
+	text-align: left;
+	display: block;
+}
+
+
+a {color:var(--text)}
+a:visited {color:var(--text)}
+
+.spacer{display:block;height: 100vh;}
+
+.footer {
+	height: 100vh;
+	position: sticky;
+	top: 0vh;
+	margin-top: -150vh;
+	width: 100%;
+	z-index: -20;
+	background-image: url("/Innveo/projects/innveoMix.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+   box-shadow: 0 -10px 90px var(--shd) inset;
+}
+
+.ftr{
+  column-count: min(3, round(to-zero, (var(--w) / var(--grd))));
+  column-gap:40px;
+  /*column-width: calc((100vw / round(to-zero, (var(--w) / var(--grd))) ) - 40px);*/
+  position: absolute;
+	top: 75%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+  color:var(--shades)
+}
+
+.ftr a{color:var(--shades);}
+
+.ftr section{margin-bottom:2em;}
+
+.whole{-webkit-column-break-inside: avoid;
+page-break-inside: avoid;
+break-inside: avoid-column;}
+
+.layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--grid), 1fr));
+  grid-gap: 0px;
+  grid-auto-rows: minmax(var(--grid), auto);
+  grid-auto-flow: dense;
+}
+
+.grid-item {
+  position:relative;
+  margin: 10px;
+  overflow: hidden;
+  border-radius: 20px;
+  box-shadow: 0 -10px 90px var(--shd) inset;
+}
+
+.x1h{display:none;}
+
+.span-2 {
+  grid-column-end: span min(2, round(to-zero, calc(var(--w) / var(--grd))));
+  grid-row-end: span min(2, round(to-zero, calc(var(--h) / var(--grd))));
+}
+
+.span-3 {
+  grid-column-end: span min(3, round(to-zero, calc(var(--w) / var(--grd))));
+  grid-row-end: span min(3, round(to-zero, calc(var(--h) / var(--grd))));
+}
+
+.grid-item > img {object-fit: cover; height:100%;width:100%;z-index:-1;position:absolute;}
+
+.fade {
+	width: 100%;
+	height: 100%;
+	box-shadow: inset 0px -200px 80px -120px var(--bg);
+	backdrop-filter: brightness(40%) contrast(120%);
+
+}
+
+.fall{
+	width: 100%;
+	height: 100%;
+	box-shadow: inset 0px 200px 80px -120px var(--bg);
+	;}
+
+body > header {height:100vh;
+  padding:0px;
+	margin-bottom: calc( -5vh - var(--nav) );
+	z-index: -10;
+  background-image: url("/Innveo/projects/Lift01.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+   box-shadow: 0 -10px 90px var(--shd) inset;
+}
+a header, a footer {margin: 10px 10px -5px 10px;}
+a header {font-weight: bold; font-size: 1.6em;}
+header > img {object-fit: cover; height:100%;width:100%;z-index:-2;position:absolute;}
+
+.botlef {position:absolute;bottom:1em;width:100%;}
+.span-2>.botlef {width:calc(100% - 50% * min(1,round(to-zero, var(--w) / (2 * var(--grd)))));}
+.span-3>.botlef {width:calc(100% - 33.33% * min(1,round(to-zero, var(--w) / (3 * var(--grd)))));}
+
+.subjj {padding:1em;}
+.sub>span, details, summary, blockquote {
+  color:var(--txt);
+  text-shadow: 0px 1px 3px var(--ts);
+}
+details {display:block;margin-top: 0;
+  margin-bottom: 16px;}
+details:not([open])>*:not(summary) {display: none !important;}
+details summary {cursor: pointer;}
+summary {display: list-item}
+blockquote{margin: 0; padding: 0 0 0 1em; border-left: 1px solid var(--txt);}
+
+.centt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight:700;
+  font-size: 3em;
+  text-shadow: 0px 1px 3px var(--ts);
+}
+
+.back {padding:10px;
+  background-image: url("https://picsum.photos/600/800?random=111");
+  background-repeat: no-repeat;
+  background-position: center;
+}
