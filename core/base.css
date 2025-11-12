@@ -148,7 +148,7 @@ height: var(--nav);
 a {color:var(--text)}
 a:visited {color:var(--text)}
 
-.spacer{display:block;height: 100vh;}
+.spacer{display:block;height: 150vh;}
 
 .footer {
 	height: 100vh;
@@ -169,7 +169,7 @@ a:visited {color:var(--text)}
   column-gap:40px;
   /*column-width: calc((100vw / round(to-zero, (var(--w) / var(--grd))) ) - 40px);*/
   position: absolute;
-	top: 75%;
+	top: 65%;
 	left: 50%;
 	transform: translate(-50%, -50%);
   color:var(--shades)
@@ -272,6 +272,7 @@ blockquote{margin: 0; padding: 0 0 0 1em; border-left: 1px solid var(--txt);}
   background-repeat: no-repeat;
   background-position: center;
 }
+
 
 
 
