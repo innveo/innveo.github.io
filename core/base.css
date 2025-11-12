@@ -33,14 +33,14 @@
 }
 
 html[data-theme='light'] {
-    --bg: rgb(235,233,232);
-    --line: rgb(200,200,200);
-    --bga: rgba(235,233,232,0.7);
-    --gbg: #fff;
-    --txt: #222;
-    --ts: rgba(0,0,0,0.2);
-    --slight: var(--bg);
-    --shd: rgba(255,255,255,0.1);
+  --bg: rgb(20,22,23);
+  --line: rgb(100,100,100);
+  --bga: rgba(20,22,23,0.6);
+  --gbg: #000;
+  --txt: #fff;
+  --ts: rgba(0,0,0,0.4);
+  --slight: var(--bg);
+  --shd: rgba(0,0,0,0.4);
 }
 
 html[data-theme='dark'] {
@@ -272,5 +272,6 @@ blockquote{margin: 0; padding: 0 0 0 1em; border-left: 1px solid var(--txt);}
   background-repeat: no-repeat;
   background-position: center;
 }
+
 
 
