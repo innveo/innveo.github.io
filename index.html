@@ -1,92 +1,614 @@
-<!doctype html>
-<html>
-  <head>
-    <title>innveo - from improvements to radical rebuilds</title>
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-    <link rel="stylesheet" href="core/base.css">
-    <link rel="stylesheet" href="core/menu.css">
-    <link rel="stylesheet" href="core/anim.css">
-  </head>
-  <body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innveo - Advanced Technology Solutions</title>
+    
+    <!-- IBM Plex Sans Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --text-main: #ffffff;
+            --text-muted: #8c8c8c;
+            --accent: rgba(255, 255, 255, 0.2);
+        }
 
-<header class="header">
-  <section class="fade">
-	<img class="innveo"
-  src="./projects/InnveoLogoFull.png"/>
-  </section>
-</header>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-base);
+            color: var(--text-main);
+            font-family: 'IBM Plex Sans', sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
 
-<nav class="sticky navbar" id="nav">
-	<div class="brand btn">
-		<a href="mailto:hello@innveo.com" class="subtle">
-Get in touch!
-    </a>
-	</div>
-</nav>
+        /* Fluid Typography and Layout */
+        .page-wrapper {
+            position: relative;
+            z-index: 10;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center; /* Center horizontally */
+            text-align: center; /* Center text globally */
+            padding: clamp(1.5rem, 5vw, 4rem) clamp(1.5rem, 6vw, 6rem);
+            box-sizing: border-box;
+            pointer-events: none; /* Let canvas receive interactions */
+        }
 
-<main class="layout" id="grid">
-  <a class="grid-item span-3"><img loading="lazy"
-  src="./projects/sensors.jpg"/><section class="botlef"><header>Innveo accelerates getting your digital or physical product to market</header><footer>Our track-record of success includes numerous awards, hard-to-get intellectual property protections and mass-produced products recognized in every continent. </footer></section>
-   </a>
-   <a class="grid-item span-1"><img loading="lazy"
-  src="./projects/complex.jpg"/><section class="botlef"><header>Complex project management</header><footer>Ensure delivery of participants in projects with both flat- and hierarchial contract structures.</footer></section>
-   </a>
-   <a class="grid-item span-1"><img loading="lazy"
-  src="./projects/conform.jpg"/><section class="botlef"><header>Conformity documentations</header><footer>Make sure your product meets market regulations.</footer></section>
-   </a>
-   <a class="grid-item span-1"><img loading="lazy"
-  src="./projects/aquila.jpg"/><section class="botlef"><header>Research and Development</header><footer>We cover the missing steps between visions and practical solutions that worth to make.</footer></section>
-   </a>
-   <a class="grid-item span-2"><img loading="lazy"
-  src="./projects/Atum.jpg"/><section class="botlef"><header>Collapsible structures for space applications</header><footer>We have developed a framework with the help of the European Space Agency (ESA) to solve complex space-saving needs in space.</footer></section>
-   </a>
-   <a class="grid-item span-1"><img loading="lazy"
-  src="./projects/yaw2.png"/><section class="botlef"><header>Product</header><footer>Housing, mechanisms, prototyping and more for physical and digital products.</footer></section>
-   </a>
-   <a class="grid-item span-1"><img loading="lazy"
-  src="./projects/pattern.png"/><section class="botlef"><header>Graphic, UI, UX</header><footer>We do things that work for your specific users.</footer></section>
-   </a>
-   <a class="grid-item span-1"><img loading="lazy"
-  src="./projects/ZS-03.jpg"/><section class="botlef"><header>Strategy for intellectual property protections</header><footer>Bridging the gap between patent lawyers and inventors by knowing what-, how- and when worth protecting.</footer></section>
-   </a>
-   <a class="grid-item span-1"><img loading="lazy"
-  src="./projects/Arch01.jpg"/><section class="botlef"><header>Patent technical research</header><footer>Make sure you can protect your invention, or that you can enter a market with your product.</footer></section>
-   </a>
-   <a class="grid-item span-1"><img loading="lazy"
-  src="./projects/Archi.jpg"/><section class="botlef"><header>Specialized applications</header><footer>For needs that does not fit into established categories small-scale technology development brings results.</footer></section>
-   </a>
-  <a class="grid-item span-1"><img loading="lazy"
-  src="./projects/Standard.jpg"/><section class="botlef"><header>Standards</header><footer>Drop us your project and get a comprehensive compliance overview with recommended next steps and budget estimates, for ISO, ATAX, MDR and more.</footer></section>
-   </a>
-   <a class="grid-item span-2"><img loading="lazy"
-  src="./projects/full.jpg"/><section class="botlef"><header>Full cycle manufacturing management</header><footer>We manage with partners the mass-manufacturing of complex products in EU, USA and far-east.</footer></section>
-   </a>
-  <a href="mailto:hello@innveo.com" class="grid-item span-1"><img loading="lazy"
-  src="./projects/xbody.jpg"/><section class="botlef"><header>Our Next Project</header><footer>Let's create what you're looking for!</footer></section>
-   </a>
-</main>
+        .page-wrapper > * {
+            pointer-events: auto; /* Re-enable for content */
+        }
 
-<footer class="footer">
-  <section class="fall"><section class="ftr">
-    <section class="whole"><h1>innveo</h1></section>
-    <section class="whole">&copy; 2025, all rights reserved</section>
-	  <section class="whole">
-      Registration number:<br>
-      03-10-100722</section>
-    <section class="whole">
-	    Tax number:<br>
-      HU32723944</section>
-    <section class="whole">Programming and design by innveo.</section>
-    <section class="whole">Innveo is a private company limited by shares. Registered in EU under Hungarian national laws.</section>
-    <section class="whole">
-	    Get in touch at:
-	    <a href="mailto:hello@innveo.com">hello@innveo.com</a></section>
-	</section></section>
-</footer>
-<span class="spacer"></span>
+        /* Background Image */
+        #bg-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-image: url('Innveo-Lift.jpg');
+            background-size: cover; /* Fills screen without changing aspect ratio */
+            background-position: center; /* Centers the image */
+            z-index: -1;
+        }
 
-<script src="core/core.js"></script>
+        /* Three.js Canvas */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+            background: var(--bg-base);
+            mix-blend-mode: screen; /* Makes the black 3D background transparent while keeping bloom */
+        }
 
-</body></html>
+        /* Main Content */
+        main {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: clamp(2rem, 5vw, 4rem) 0;
+            width: 100%;
+        }
+
+        h1 {
+            /* Increased overall font size */
+            font-size: clamp(1.5rem, 4vw, 3.8rem);
+            font-weight: 300;
+            line-height: 1.3;
+            letter-spacing: -0.01em;
+            margin: 0 auto;
+            max-width: 95vw;
+        }
+
+        h1 strong {
+            font-weight: 600;
+        }
+
+        .text-line {
+            display: block; /* Forces separate lines */
+            margin-bottom: 0.1em;
+        }
+
+        .text-large {
+            font-size: 1.35em;
+        }
+
+        .text-small {
+            font-size: 0.45em; /* Further reduced size of the word 'with' */
+        }
+
+        .text-dyn-2 {
+            font-size: 0.8em; /* Reduces size of the second changing text */
+        }
+
+        .dynamic-wrapper {
+            display: inline-block;
+            color: var(--text-main);
+            margin: 0 0.1em;
+        }
+
+        /* CTA Section */
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1.2rem;
+            margin-bottom: clamp(2rem, 6vw, 4rem);
+        }
+
+        .cta-email {
+            font-size: clamp(0.9rem, 2vw, 1.2rem);
+            font-weight: 300;
+            color: var(--text-main);
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        .cta-email:hover {
+            opacity: 0.8;
+        }
+
+        .btn-primary {
+            background: rgba(0, 60, 200, 0.15); /* Made more transparent */
+            backdrop-filter: blur(5px); /* Less blurry */
+            -webkit-backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+            color: #ffffff;
+            /* Increased padding and font size to make the button larger */
+            padding: clamp(0.8rem, 2vw, 1.2rem) clamp(2rem, 4vw, 3.5rem);
+            border-radius: 50px;
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            font-weight: 500;
+            text-decoration: none;
+            transition: background 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+            pointer-events: auto;
+        }
+
+        .btn-primary:hover {
+            background: rgba(0, 80, 240, 0.3); /* Adjusted transparent hover state */
+            border-color: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            font-size: clamp(0.7rem, 1vw, 0.9rem);
+            color: var(--text-muted);
+            line-height: 1.6;
+            max-width: 100%;
+        }
+
+        .footer-content {
+            display: block;
+        }
+
+        /* Text Animation Classes */
+        .word {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(clamp(8px, 1.5vw, 15px));
+            transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                        transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            white-space: pre-wrap;
+        }
+
+        .word.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+
+    <!-- Import Maps for Modern Three.js Ecosystem -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <!-- Background Image -->
+    <div id="bg-image"></div>
+
+    <!-- 3D Background -->
+    <canvas id="bg-canvas"></canvas>
+
+    <!-- Content Overlay -->
+    <div class="page-wrapper">
+        <main>
+            <h1 class="reveal-text">
+                <span class="text-line text-large"><strong>Innveo</strong> advances</span>
+                <span class="text-line"><span id="dyn-phrase-1" class="dynamic-wrapper">spacecraft power generation</span></span>
+                <span class="text-line text-small">with</span>
+                <span class="text-line text-dyn-2"><span id="dyn-phrase-2" class="dynamic-wrapper">new technologies</span></span>
+            </h1>
+        </main>
+
+        <section class="cta-container reveal-text">
+            <a href="mailto:hello@innveo.com" class="cta-email">hello@innveo.com</a>
+            <a href="mailto:hello@innveo.com" class="btn-primary">Get in touch!</a>
+        </section>
+
+        <footer class="reveal-text">
+            <div class="footer-content">
+                Innveo Zrt., Registration number: 03-10-100722, Tax number: HU32723944, Innveo is a private company limited by shares. Registered in EU under Hungarian national laws., &copy; 2026, all rights reserved
+            </div>
+        </footer>
+    </div>
+
+    <!-- Main Logic Module -->
+    <script type="module">
+        import * as THREE from 'three';
+        import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+        import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+        import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+        import { AfterimagePass } from 'three/addons/postprocessing/AfterimagePass.js';
+
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // ==========================================
+            // 1. TEXT REVEAL & DYNAMIC CYCLING LOGIC
+            // ==========================================
+
+            const dynOptions1 = [
+                "spacecraft power generation", 
+                "deployable mechanisms", 
+                "medical devices", 
+                "intellectual property strategies", 
+                "consumer products"
+            ];
+            
+            const dynOptions2 = [
+                "new technologies", 
+                "improved structures", 
+                "progressive methods", 
+                "robust results", 
+                "meaningful simplifications"
+            ];
+
+            // Safely split text nodes into spanned words
+            function splitTextIntoWords(element) {
+                const walker = document.createTreeWalker(element, NodeFilter.SHOW_TEXT, null, false);
+                const textNodes = [];
+                while(walker.nextNode()) textNodes.push(walker.currentNode);
+                
+                textNodes.forEach(node => {
+                    const text = node.nodeValue;
+                    if (!text.trim()) return; 
+                    
+                    const parts = text.split(/(\s+)/);
+                    const fragment = document.createDocumentFragment();
+                    
+                    parts.forEach(part => {
+                        if (part.trim()) {
+                            const span = document.createElement('span');
+                            span.className = 'word';
+                            span.textContent = part;
+                            fragment.appendChild(span);
+                        } else {
+                            fragment.appendChild(document.createTextNode(part));
+                        }
+                    });
+                    node.parentNode.replaceChild(fragment, node);
+                });
+            }
+
+            // Animate words in with stagger
+            function animateWordsIn(container) {
+                const words = container.querySelectorAll('.word');
+                words.forEach((w, i) => {
+                    setTimeout(() => w.classList.add('visible'), i * 40);
+                });
+            }
+
+            // Continuous cycle logic
+            function cycleDynamicText(elementId, optionsArray, initialDelay, baseDelay) {
+                const el = document.getElementById(elementId);
+                let currentIndex = 0; // Starts at index 0 initially
+                
+                const runCycle = () => {
+                    const delay = Math.random() * 1000 + baseDelay; // baseDelay to baseDelay + 1 seconds
+                    
+                    setTimeout(() => {
+                        const words = el.querySelectorAll('.word');
+                        words.forEach(w => {
+                            w.classList.remove('visible');
+                            w.style.transform = 'translateY(-10px)';
+                            w.style.opacity = '0';
+                        });
+                        
+                        setTimeout(() => {
+                            // Pick a random index that is different from the current one
+                            let newIndex;
+                            do {
+                                newIndex = Math.floor(Math.random() * optionsArray.length);
+                            } while (newIndex === currentIndex && optionsArray.length > 1);
+                            
+                            currentIndex = newIndex;
+                            el.textContent = optionsArray[currentIndex];
+                            
+                            splitTextIntoWords(el);
+                            void el.offsetWidth; // Reflow
+                            
+                            const newWords = el.querySelectorAll('.word');
+                            newWords.forEach(w => {
+                                w.style.transform = ''; 
+                                w.style.opacity = '';
+                            });
+                            
+                            animateWordsIn(el);
+                            runCycle(); 
+                        }, 850); // wait for 0.8s slower transition
+                    }, delay);
+                };
+                
+                setTimeout(runCycle, initialDelay); 
+            }
+
+            // Init text routines
+            const revealElements = document.querySelectorAll('.reveal-text');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateWordsIn(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            revealElements.forEach(el => {
+                splitTextIntoWords(el);
+                observer.observe(el);
+            });
+
+            // Start the cyclers with offset initial delays and different base delay times
+            cycleDynamicText('dyn-phrase-1', dynOptions1, 2000, 4000); // 4-5 seconds between changes
+            cycleDynamicText('dyn-phrase-2', dynOptions2, 4500, 5000); // 5-6 seconds between changes (~1 sec slower)
+
+
+            // ==========================================
+            // 2. THREE.JS PARTICLE SWARM WITH BLOOM
+            // ==========================================
+
+            const canvas = document.getElementById('bg-canvas');
+            
+            // Renderer
+            const renderer = new THREE.WebGLRenderer({ canvas, antialias: false });
+            renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.5)); // Optimized
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(0x000000); // Strictly black
+
+            // Scene & Camera
+            const scene = new THREE.Scene();
+            scene.fog = new THREE.FogExp2(0x000000, 0.015);
+            
+            const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 200);
+            camera.position.z = 40;
+
+            // Bloom Post-Processing Setup
+            const renderScene = new RenderPass(scene, camera);
+            const afterimagePass = new AfterimagePass(0.85); // Decreased to create shorter trails
+            const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.5, 0.4, 0.1);
+            bloomPass.threshold = 0;
+            bloomPass.strength = 3.0; // Stronger bloom intensity
+            bloomPass.radius = 0.8;
+
+            const composer = new EffectComposer(renderer);
+            composer.addPass(renderScene);
+            composer.addPass(afterimagePass);
+            composer.addPass(bloomPass);
+
+            // Generate Soft Particle Texture internally
+            const texCanvas = document.createElement('canvas');
+            texCanvas.width = 32; texCanvas.height = 32;
+            const ctx = texCanvas.getContext('2d');
+            const gradient = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
+            gradient.addColorStop(0, 'rgba(255,255,255,1)');
+            gradient.addColorStop(0.2, 'rgba(255,255,255,0.8)');
+            gradient.addColorStop(1, 'rgba(0,0,0,0)');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, 32, 32);
+            const particleTexture = new THREE.CanvasTexture(texCanvas);
+
+            // Particle Setup
+            const particleCount = 2500;
+            const geometry = new THREE.BufferGeometry();
+            
+            const positions = new Float32Array(particleCount * 3);
+            const colors = new Float32Array(particleCount * 3);
+            const velocities = new Float32Array(particleCount * 3);
+            const baseVelocities = new Float32Array(particleCount * 3);
+
+            const bounds = { x: 60, y: 40, z: 30 };
+
+            for (let i = 0; i < particleCount; i++) {
+                // Random spread at different heights
+                positions[i*3] = (Math.random() - 0.5) * bounds.x * 2;
+                positions[i*3+1] = (Math.random() - 0.5) * bounds.y * 2;
+                positions[i*3+2] = (Math.random() - 0.5) * bounds.z * 2;
+
+                // Dimmer particles
+                colors[i*3] = 0.08;
+                colors[i*3+1] = 0.08;
+                colors[i*3+2] = 0.08;
+
+                // Constant moderate speeds in different directions
+                const vx = (Math.random() - 0.5);
+                const vy = (Math.random() - 0.5);
+                const vz = (Math.random() - 0.5);
+                
+                // Normalize and apply slower speed
+                const length = Math.sqrt(vx*vx + vy*vy + vz*vz);
+                const speed = Math.random() * 0.5 + 0.1; // Slowed down
+                
+                velocities[i*3] = (vx / length) * speed;
+                velocities[i*3+1] = (vy / length) * speed;
+                velocities[i*3+2] = (vz / length) * speed;
+                
+                baseVelocities[i*3] = velocities[i*3];
+                baseVelocities[i*3+1] = velocities[i*3+1];
+                baseVelocities[i*3+2] = velocities[i*3+2];
+            }
+
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+            geometry.setAttribute('velocity', new THREE.BufferAttribute(velocities, 3));
+            geometry.setAttribute('baseVelocity', new THREE.BufferAttribute(baseVelocities, 3));
+
+            const material = new THREE.PointsMaterial({
+                size: 0.8,
+                vertexColors: true,
+                map: particleTexture,
+                blending: THREE.AdditiveBlending,
+                depthWrite: false,
+                transparent: true,
+                opacity: 0.2 // Reduced to 20%
+            });
+
+            const points = new THREE.Points(geometry, material);
+            scene.add(points);
+
+            // Interaction Variables
+            let mouse2D = new THREE.Vector2(0, 0);
+            let mouse3D = new THREE.Vector3(0, 0, 0);
+            let targetCameraOffset = new THREE.Vector3(0, 0, 40);
+            let gyroOffset = new THREE.Vector2(0, 0);
+            let isMouseMoving = false;
+            let mouseMoveTimeout;
+
+            // Resize Handler
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+                composer.setSize(window.innerWidth, window.innerHeight);
+            });
+
+            // Map screen coords to 3D world plane at average Z (0)
+            const updateMouse3D = (clientX, clientY) => {
+                isMouseMoving = true;
+                clearTimeout(mouseMoveTimeout);
+                mouseMoveTimeout = setTimeout(() => { isMouseMoving = false; }, 150); // Cursor is stationary after 150ms
+
+                mouse2D.x = (clientX / window.innerWidth) * 2 - 1;
+                mouse2D.y = -(clientY / window.innerHeight) * 2 + 1;
+                
+                // Calculate target camera offset for Parallax
+                targetCameraOffset.x = mouse2D.x * 6;
+                targetCameraOffset.y = mouse2D.y * 6;
+
+                // Unproject to find world point at z=0 plane
+                const vec = new THREE.Vector3(mouse2D.x, mouse2D.y, 0.5);
+                vec.unproject(camera);
+                vec.sub(camera.position).normalize();
+                const distance = -camera.position.z / vec.z;
+                mouse3D.copy(camera.position).add(vec.multiplyScalar(distance));
+            };
+
+            window.addEventListener('mousemove', e => updateMouse3D(e.clientX, e.clientY));
+            window.addEventListener('touchmove', e => updateMouse3D(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
+
+            // Device Orientation (Gyroscope)
+            let orientationRequested = false;
+            const handleOrientation = (e) => {
+                if (e.beta !== null && e.gamma !== null) {
+                    gyroOffset.x = Math.sin(e.gamma * Math.PI / 180) * 15;
+                    gyroOffset.y = Math.sin((e.beta - 45) * Math.PI / 180) * 15;
+                }
+            };
+
+            document.body.addEventListener('click', () => {
+                if (!orientationRequested) {
+                    if (typeof DeviceOrientationEvent !== 'undefined' && typeof DeviceOrientationEvent.requestPermission === 'function') {
+                        DeviceOrientationEvent.requestPermission().then(state => {
+                            if (state === 'granted') window.addEventListener('deviceorientation', handleOrientation);
+                        }).catch(console.error);
+                    } else {
+                        window.addEventListener('deviceorientation', handleOrientation);
+                    }
+                    orientationRequested = true;
+                }
+            }, { once: true });
+
+            // Physics & Render Loop
+            const clock = new THREE.Clock();
+
+            const animate = () => {
+                requestAnimationFrame(animate);
+
+                const dt = Math.min(clock.getDelta(), 0.05); // Cap delta time for stability
+                
+                const posAttr = geometry.attributes.position;
+                const velAttr = geometry.attributes.velocity;
+                const baseVelAttr = geometry.attributes.baseVelocity;
+
+                // Process Swarm Physics
+                for (let i = 0; i < particleCount; i++) {
+                    let px = posAttr.getX(i);
+                    let py = posAttr.getY(i);
+                    let pz = posAttr.getZ(i);
+
+                    let vx = velAttr.getX(i);
+                    let vy = velAttr.getY(i);
+                    let vz = velAttr.getZ(i);
+
+                    const bvx = baseVelAttr.getX(i);
+                    const bvy = baseVelAttr.getY(i);
+                    const bvz = baseVelAttr.getZ(i);
+
+                    // Weak mouse attraction, triggers ONLY when cursor is moving
+                    if (isMouseMoving) {
+                        const dx = mouse3D.x - px;
+                        const dy = mouse3D.y - py;
+                        const dz = mouse3D.z - pz;
+                        const distSq = dx*dx + dy*dy + dz*dz;
+                        
+                        // Interaction sphere
+                        if (distSq < 900) { 
+                            const dist = Math.sqrt(distSq) + 0.1;
+                            // Weakened gravity formula
+                            const force = 4.0 / (distSq + 10.0); 
+                            
+                            vx += (dx / dist) * force;
+                            vy += (dy / dist) * force;
+                            vz += (dz / dist) * force;
+                        }
+                    }
+
+                    // Constantly steer back to baseline velocity to avoid chaos
+                    vx += (bvx - vx) * 1.5 * dt;
+                    vy += (bvy - vy) * 1.5 * dt;
+                    vz += (bvz - vz) * 1.5 * dt;
+
+                    // Update Position (slowed down movement)
+                    px += vx * dt * 2.0; 
+                    py += vy * dt * 2.0;
+                    pz += vz * dt * 2.0;
+
+                    // Wrap around boundaries
+                    if (px > bounds.x) px = -bounds.x; else if (px < -bounds.x) px = bounds.x;
+                    if (py > bounds.y) py = -bounds.y; else if (py < -bounds.y) py = bounds.y;
+                    if (pz > bounds.z) pz = -bounds.z; else if (pz < -bounds.z) pz = bounds.z;
+
+                    posAttr.setXYZ(i, px, py, pz);
+                    velAttr.setXYZ(i, vx, vy, vz);
+                }
+                
+                posAttr.needsUpdate = true;
+
+                // Smooth Camera POV Parallax Update
+                const finalTargetX = targetCameraOffset.x + gyroOffset.x;
+                const finalTargetY = targetCameraOffset.y + gyroOffset.y;
+                
+                camera.position.x += (finalTargetX - camera.position.x) * 0.05;
+                camera.position.y += (finalTargetY - camera.position.y) * 0.05;
+                camera.lookAt(0, 0, 0);
+
+                // Render with Bloom
+                composer.render();
+            };
+
+            animate();
+        });
+    </script>
+</body>
+</html>
